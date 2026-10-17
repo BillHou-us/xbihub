@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XBIHUB — Global Bio-Intelligence Node Network</title>
+  <meta name="description" content="XBIHUB — Bio-intelligence infrastructure for a multi-planetary future. Sense. Understand. Evolve." />
+  <meta name="theme-color" content="#020203" />
+  <meta property="og:title" content="XBIHUB — Global Bio-Intelligence Node Network" />
+  <meta property="og:description" content="Bio-intelligence infrastructure for a multi-planetary future. Sense. Understand. Evolve." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/globe-network.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="XBIHUB — Global Bio-Intelligence Node Network" />
+  <meta name="twitter:description" content="Bio-intelligence infrastructure for a multi-planetary future. Sense. Understand. Evolve." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/jpeg" href="assets/logo-x.jpg" />
+  <link rel="preload" as="image" href="assets/video/hero-poster.jpg" fetchpriority="high" />
+</head>
+<body>
+  <nav class="nav" id="mainNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-x.jpg" alt="XBIHUB" width="26" height="26" decoding="async" />
+        <div class="logo-text">XBI<span>HUB</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav_about">About</a></li>
+        <li><a href="network.html" data-i18n="nav_network">Global Network</a></li>
+        <li><a href="tech.html" data-i18n="nav_tech">Technology</a></li>
+        <li><a href="governance.html" data-i18n="nav_governance">Governance</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+      <div class="nav-actions">
+        <div class="lang-switcher" id="langSwitcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="zh">中文</button></div>
+        <a href="secure.html" class="btn btn-ghost btn-sm" data-i18n="nav_login">Sign In</a>
+        <a href="secure.html" class="btn btn-primary btn-sm" data-i18n="nav_apply">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="about.html" data-i18n="nav_about">About</a>
+    <a href="network.html" data-i18n="nav_network">Global Network</a>
+    <a href="tech.html" data-i18n="nav_tech">Technology</a>
+    <a href="governance.html" data-i18n="nav_governance">Governance</a>
+    <a href="secure.html" data-i18n="nav_apply">Apply Now</a>
+  </div>
+
+  <!-- Hero — Full-viewport cinematic video (SpaceX-style) -->
+  <section class="hero hero-video" id="hero">
+    <div class="hero-media" aria-hidden="true">
+      <!-- Poster paints first; video src injected by JS after idle for faster LCP -->
+      <img
+        class="hero-poster"
+        id="heroPoster"
+        src="assets/video/hero-poster.jpg"
+        alt=""
+        width="1280"
+        height="720"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <video
+        class="hero-video-el"
+        id="heroVideo"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/video/hero-poster.jpg"
+      ></video>
+      <div class="hero-video-fallback">
+        <img src="assets/video/hero-poster.jpg" alt="" width="1280" height="720" decoding="async" loading="lazy" />
+      </div>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-content hero-content-video">
+      <div class="hero-text">
+        <div class="hero-badge" data-i18n="hero_badge">Global Bio-Intelligence Node Network</div>
+        <h1>
+          <span data-i18n="hero_title">One Network.</span><br />
+          <span class="accent" data-i18n="hero_title_accent">One Future.</span>
+        </h1>
+        <p class="hero-slogan" data-i18n="hero_slogan">Sense. Understand. Evolve.</p>
+        <p class="hero-desc" data-i18n="hero_desc">Apply. Sign. Activate.</p>
+        <div class="hero-cta">
+          <a href="secure.html" class="btn btn-primary btn-lg" data-i18n="hero_cta_apply">Start Application</a>
+          <a href="network.html" class="btn btn-ghost btn-lg" data-i18n="hero_cta_learn">Explore the Network</a>
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value">100</div>
+            <div class="stat-label" data-i18n="stat_nodes">Target Nodes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">4</div>
+            <div class="stat-label" data-i18n="stat_pathways">Pathways</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">EN / 中</div>
+            <div class="stat-label" data-i18n="stat_bilingual">Languages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label" data-i18n="features_label">Platform</div>
+        <h2 data-i18n="features_title">Built for scale.</h2>
+        <p data-i18n="features_desc">Secure digital infrastructure for applicants, operators, and administrators.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="card-icon">01</div>
+          <h3 data-i18n="feat1_title">Application</h3>
+          <p data-i18n="feat1_desc">Draft, track, and submit applications with structured information requests.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="card-icon">02</div>
+          <h3 data-i18n="feat2_title">Agreements</h3>
+          <p data-i18n="feat2_desc">Versioned agreements, verified electronic signature, and complete audit trails.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="card-icon">03</div>
+          <h3 data-i18n="feat3_title">Review</h3>
+          <p data-i18n="feat3_desc">Structured review queues, multi-stage approval, and complete decision logs.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="card-icon">04</div>
+          <h3 data-i18n="feat4_title">Lifecycle</h3>
+          <p data-i18n="feat4_desc">Controlled lifecycle states from pending to active or suspended — every transition recorded.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-5">
+          <div class="card-icon">05</div>
+          <h3 data-i18n="feat5_title">Access</h3>
+          <p data-i18n="feat5_desc">Granular role-based access for applicants, reviewers, and administrators.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-6">
+          <div class="card-icon">06</div>
+          <h3 data-i18n="feat6_title">Global</h3>
+          <p data-i18n="feat6_desc">Bilingual EN / 中. Privacy-first design. Region-ready configuration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" style="background: var(--bg-2);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="label" data-i18n="process_label">Process</div>
+        <h2 data-i18n="process_title">From application to activation.</h2>
+        <p data-i18n="process_desc">Transparent. Auditable. Controlled.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">01</div>
+          <h4 data-i18n="step1">Apply</h4>
+          <p data-i18n="step1_desc">Register an account, complete the pathway form, and submit for review.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">02</div>
+          <h4 data-i18n="step2">Review</h4>
+          <p data-i18n="step2_desc">Structured evaluation by the operations team, with optional requests for additional information.</p>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <div class="step-num">03</div>
+          <h4 data-i18n="step3">Sign</h4>
+          <p data-i18n="step3_desc">Execute the versioned agreement package through a verified electronic signature provider.</p>
+        </div>
+        <div class="step reveal reveal-delay-4">
+          <div class="step-num">04</div>
+          <h4 data-i18n="step4">Activate</h4>
+          <p data-i18n="step4_desc">Upon satisfaction of signature, payment, and readiness conditions, the node enters active status.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Node Types -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label" data-i18n="nodes_label">Pathways</div>
+        <h2 data-i18n="nodes_title">Four entry pathways</h2>
+        <p data-i18n="nodes_intro">Select the pathway that matches your primary contribution. Review criteria and agreement packages are pathway-specific.</p>
+      </div>
+      <div class="grid-2">
+        <div class="node-type reveal reveal-delay-1">
+          <h4 data-i18n="node_commercial">Commercial</h4>
+          <p class="text-secondary" data-i18n="node_commercial_desc">Organizations deploying operational capacity under network standards, including facility, logistics, and service delivery aligned to XBIHUB protocols.</p>
+        </div>
+        <div class="node-type reveal reveal-delay-2">
+          <h4 data-i18n="node_research">Research</h4>
+          <p class="text-secondary" data-i18n="node_research_desc">Institutions and laboratories focused on extreme-environment biology, closed-loop life systems, and applied research that advances network capability.</p>
+        </div>
+        <div class="node-type reveal reveal-delay-3">
+          <h4 data-i18n="node_tech">Technology</h4>
+          <p class="text-secondary" data-i18n="node_tech_desc">Providers of edge intelligence, sensing systems, and life-support technologies that integrate with the network’s operational and data layers.</p>
+        </div>
+        <div class="node-type reveal reveal-delay-4">
+          <h4 data-i18n="node_community">Community</h4>
+          <p class="text-secondary" data-i18n="node_community_desc">Local initiatives advancing resilience, education, and public understanding in coordination with regional network priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background: var(--bg-2);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 data-i18n="cta_title">Join the Network</h2>
+        <p class="text-secondary" data-i18n="cta_desc">Application, review, and activation are conducted entirely through the secure portal.</p>
+        <a href="secure.html" class="btn btn-primary btn-lg" data-i18n="cta_btn">Start Application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/logo-x.jpg" alt="XBIHUB" style="height: 26px;" />
+            <div class="logo-text">XBI<span>HUB</span></div>
+          </a>
+          <p data-i18n="footer_tagline">Sense. Understand. Evolve.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_platform">Platform</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="network.html" data-i18n="nav_network">Global Network</a></li>
+            <li><a href="tech.html" data-i18n="nav_tech">Technology</a></li>
+            <li><a href="governance.html" data-i18n="nav_governance">Governance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_legal">Legal</h4>
+          <ul>
+            <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+            <li><a href="terms.html" data-i18n="footer_terms">Terms of Use</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_connect">Connect</h4>
+          <ul>
+            <li><a href="secure.html" data-i18n="nav_apply">Apply Now</a></li>
+            <li><a href="secure.html" data-i18n="nav_login">Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_rights">© 2026 XBIHUB. All rights reserved. Confidential.</span>
+        <span>V6.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

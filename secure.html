@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner Portal — XBIHUB</title>
+  <meta name="description" content="XBIHUB secure partner portal for node application, agreements, and account management." />
+  <meta name="theme-color" content="#020203" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/jpeg" href="assets/logo-x.jpg" />
+  <style>
+    .secure-wrap { max-width: 1040px; margin: 0 auto; padding: 6.5rem 1.75rem 4rem; position: relative; z-index: 1; }
+    .secure-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.75rem 1.6rem;
+      margin: 0;
+    }
+    .secure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .secure-card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .secure-card h3 {
+      font-size: 0.92rem;
+      margin: 1.4rem 0 0.7rem;
+      color: var(--text);
+    }
+    .secure-card label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .secure-card input,
+    .secure-card select,
+    .secure-card textarea {
+      width: 100%;
+      margin: 0 0 1rem;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: rgba(0,0,0,0.35);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .secure-card input:focus,
+    .secure-card select:focus,
+    .secure-card textarea:focus {
+      outline: none;
+      border-color: var(--border-hover);
+      box-shadow: 0 0 0 2px rgba(226, 228, 234, 0.06);
+    }
+    .secure-card textarea { min-height: 120px; resize: vertical; }
+    .secure-status {
+      padding: 0.9rem 1.1rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      margin: 1rem 0 0;
+      font-size: 0.86rem;
+      color: var(--text-2);
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+    .secure-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .secure-table td, .secure-table th {
+      padding: 0.7rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .secure-table th { color: var(--text-3); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .secure-actions { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .muted { color: var(--text-3); font-size: 0.84rem; line-height: 1.55; }
+    .page-header { margin-bottom: 0.5rem; }
+    .page-header h1 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.4rem; }
+    .secure-divider { margin: 1.5rem 0; border: none; border-top: 1px solid var(--border); }
+    .secure-check { display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0 1rem; font-size: 0.86rem; color: var(--text-2); }
+    .secure-check input { width: auto; margin: 0; }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="mainNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-x.jpg" alt="XBIHUB" width="26" height="26" decoding="async" />
+        <div class="logo-text">XBI<span>HUB</span></div>
+      </a>
+      <div class="nav-actions">
+        <div class="lang-switcher" id="langSwitcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="zh">中文</button></div>
+        <a class="btn btn-ghost btn-sm" href="index.html" data-i18n="secure_public">Public Site</a>
+        <button class="btn btn-secondary btn-sm" id="logoutBtn" hidden data-i18n="nav_logout">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="secure-wrap">
+    <div class="page-header">
+      <div class="label" data-i18n="secure_label">Partner Portal</div>
+      <h1 id="pageTitle" data-i18n="secure_title">XBIHUB Partner Portal</h1>
+      <p class="muted" data-i18n="secure_subtitle">Authenticated access for application, agreements, and node lifecycle management.</p>
+    </div>
+
+    <div id="notice" class="secure-status" data-i18n="secure_connecting">Connecting to the secure service…</div>
+
+    <!-- Auth -->
+    <section id="authPanel" class="secure-grid">
+      <div class="secure-card">
+        <h2 data-i18n="auth_login">Sign In</h2>
+        <form id="loginForm">
+          <label data-i18n="auth_email">Email Address</label>
+          <input id="loginEmail" type="email" autocomplete="username" required />
+          <label data-i18n="auth_password">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" required />
+          <button class="btn btn-primary" type="submit" data-i18n="auth_submit_login">Sign In</button>
+        </form>
+      </div>
+      <div class="secure-card">
+        <h2 data-i18n="auth_register">Create Partner Account</h2>
+        <form id="registerForm">
+          <label data-i18n="auth_name">Full Name</label>
+          <input id="regName" required maxlength="120" />
+          <label data-i18n="auth_email">Email Address</label>
+          <input id="regEmail" type="email" autocomplete="email" required />
+          <label data-i18n="auth_password_hint">Password (12+ characters)</label>
+          <input id="regPassword" type="password" autocomplete="new-password" minlength="12" required />
+          <button class="btn btn-secondary" type="submit" data-i18n="auth_submit_register">Register</button>
+        </form>
+        <p class="muted" style="margin-top:1rem;" data-i18n="auth_verify_note">Email verification may be required before sign-in, depending on server configuration.</p>
+      </div>
+    </section>
+
+    <!-- Application + Account -->
+    <section id="appPanel" class="hidden">
+      <div class="secure-grid">
+        <div class="secure-card">
+          <h2 data-i18n="apply_title">Submit Node Application</h2>
+          <form id="applicationForm">
+            <label data-i18n="apply_entity">Entity Type</label>
+            <select id="entityType">
+              <option value="company" data-i18n="apply_company">Company</option>
+              <option value="individual" data-i18n="apply_individual">Individual</option>
+            </select>
+            <label data-i18n="apply_company_name">Company / Legal Name</label>
+            <input id="companyName" required maxlength="200" />
+            <label data-i18n="apply_applicant">Applicant Name</label>
+            <input id="applicantName" required maxlength="120" />
+            <label data-i18n="apply_country">Country / Region</label>
+            <input id="country" required maxlength="120" />
+            <label data-i18n="apply_city">City</label>
+            <input id="city" maxlength="120" />
+            <label data-i18n="apply_node_type">Node Type</label>
+            <select id="nodeType">
+              <option value="commercial" data-i18n="node_commercial">Commercial</option>
+              <option value="research" data-i18n="node_research">Research</option>
+              <option value="technology" data-i18n="node_tech">Technology</option>
+              <option value="community" data-i18n="node_community">Community</option>
+            </select>
+            <label data-i18n="apply_plan">Node Plan</label>
+            <textarea id="nodePlan" required minlength="50" maxlength="5000" rows="5" placeholder=""></textarea>
+            <p class="muted" style="margin:-0.5rem 0 1rem;" data-i18n="apply_plan_hint">Describe objectives, resources, operational plan, and compliance arrangements (50–5,000 characters).</p>
+            <button class="btn btn-primary" type="submit" data-i18n="apply_submit">Submit Application</button>
+          </form>
+        </div>
+        <div class="secure-card">
+          <h2 data-i18n="portal_profile">My Account</h2>
+          <div id="meBox" class="muted"></div>
+          <h3 data-i18n="portal_applications">My Applications</h3>
+          <div id="myApps"></div>
+          <h3 data-i18n="portal_resources">Partner Resources</h3>
+          <div id="resources"></div>
+          <p class="muted" data-i18n="portal_resources_note">Resources are displayed only when the server grants access. Agreement signing requires a configured and verified electronic signature provider.</p>
+        </div>
+      </div>
+
+      <div id="adminPanel" class="secure-card hidden" style="margin-top:1rem;">
+        <h2 data-i18n="admin_title">Admin Console</h2>
+        <p class="muted" data-i18n="admin_note">Administrative access is determined exclusively by the server-side profile role. Browser storage cannot elevate privileges.</p>
+        <div id="adminApps"></div>
+        <hr class="secure-divider" />
+        <h3 data-i18n="admin_publish">Publish Partner Resource</h3>
+        <form id="resourceForm">
+          <div class="secure-grid">
+            <div>
+              <label data-i18n="admin_res_title">Title</label>
+              <input id="resourceTitle" required maxlength="200" />
+            </div>
+            <div>
+              <label data-i18n="admin_res_url">HTTPS URL</label>
+              <input id="resourceUrl" type="url" required placeholder="https://…" />
+            </div>
+            <div>
+              <label data-i18n="admin_res_cat">Category</label>
+              <input id="resourceCategory" value="General" maxlength="100" />
+            </div>
+            <div>
+              <label data-i18n="admin_res_access">Access Level</label>
+              <select id="resourceAccess">
+                <option value="all_partners">All signed-in partners</option>
+                <option value="approved">Approved applicants</option>
+                <option value="active">Active nodes</option>
+                <option value="admin">Administrators only</option>
+              </select>
+            </div>
+          </div>
+          <label class="secure-check">
+            <input id="resourcePublish" type="checkbox" />
+            <span data-i18n="admin_res_publish">Publish immediately</span>
+          </label>
+          <button class="btn btn-primary" type="submit" data-i18n="admin_res_save">Save Resource</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/secure.js"></script>
+</body>
+</html>
